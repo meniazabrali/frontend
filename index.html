@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Меня забрали</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<h1>Меня забрали</h1>
+<p>🇷🇺&nbsp;Этот сайт создан для того, чтобы собрать <strong>анонимную</strong> статистику по мобилизации в РФ. Никто же не
+    верит этим пиздаболам?</p>
+<p><strong>Если ты получил(а) повестку, заполни простую форму - город и твое решение</strong></p>
+<p>🇺🇦&nbsp;Будь ласка, не треба зловживати і відправляти неперевірену або некорректну інформацію. Цей сайт створений для того, щоб ще більше людей прагнули до миру. Ми просто хочемо показати реальний масштаб того, що відбувається і зробити так, щоб народ Росії нарешті прокинувся</p>
+<div id="addMe" hidden>
+    <form autocomplete="off" id="addMeForm">
+        <label><input type="radio" name="is_out" value="0">Меня забрали</label> | <label><input type="radio"
+                                                                                                name="is_out" value="1">Я
+        уехал</label><br/>
+        <div class="autocomplete" style="width:300px;">
+            <input id="myInput" type="text" name="city" placeholder="Начни вводить город">
+        </div>
+        <input class="g-recaptcha"
+               data-sitekey="6Lco9ygiAAAAADu29xjCPXb_iugChV9ZA1YT2efd"
+               data-callback='onSubmit'
+               data-action='submit' type="submit" value="Отправить"/>
+    </form>
+</div>
+<div id="ok" hidden>OK, принято</div>
+<div id="error" hidden>Ошибка: <strong></strong></div>
+<div id="map"></div>
+<div id="table">
+    <table id="cityTable" border="1">
+        <thead>
+        <tr>
+            <th>Город</th>
+            <th>Забрали</th>
+            <th>Ухало</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<div id="footer">
+    admin@meniazabra.li <a href="https://github.com/meniazabrali/frontend" target="_blank">GitHub (feel free to submit PR)</a>
+</div>
+</body>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+<script src="js.cookie.min.js"></script>
+<script src="js.js"></script>
+</html>
