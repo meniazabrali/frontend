@@ -5,47 +5,62 @@
     <meta charset="UTF-8">
     <meta name="description" content="Меня забрали. Анонимная статистика по мобилизации">
     <title>Меня забрали</title>
-    <link rel="stylesheet" href="style.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body>
-<h1>Меня забрали</h1>
-<p>🇷🇺&nbsp;Этот сайт создан для того, чтобы собрать <strong>анонимную</strong> статистику по мобилизации в РФ. Никто же не
-    верит этим пиздаболам?</p>
-<p><strong>Если ты получил(а) повестку, заполни простую форму - город и твое решение</strong></p>
-<p>🇺🇦&nbsp;Будь ласка, не треба зловживати і відправляти неперевірену або некорректну інформацію. Цей сайт створений для того, щоб ще більше людей прагнули до миру. Ми просто хочемо показати реальний масштаб того, що відбувається і зробити так, щоб народ Росії нарешті прокинувся</p>
-<div id="addMe" hidden>
-    <form autocomplete="off" id="addMeForm">
-        <label><input type="radio" name="is_out" value="0">Меня забрали</label> | <label><input type="radio"
-                                                                                                name="is_out" value="1">Я
-        уехал</label><br/>
-        <div class="autocomplete" style="width:300px;">
-            <input id="myInput" type="text" name="city" placeholder="Начни вводить город">
-        </div>
-        <input class="g-recaptcha"
-               data-sitekey="6Lco9ygiAAAAADu29xjCPXb_iugChV9ZA1YT2efd"
-               data-callback='onSubmit'
-               data-action='submit' type="submit" value="Отправить"/>
-    </form>
-</div>
-<div id="ok" hidden>OK, принято</div>
-<div id="error" hidden>Ошибка: <strong></strong></div>
-<div id="map"></div>
-<div id="table">
-    <table id="cityTable" border="1">
-        <thead>
-        <tr>
-            <th>Город</th>
-            <th>Забрали</th>
-            <th>Уехало</th>
-        </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-</div>
-<div id="footer">
-    admin@meniazabra.li <a href="https://github.com/meniazabrali/frontend" target="_blank">GitHub (feel free to submit PR)</a>
+<div class="container py-5" style="font-size: 21px; line-height: 35px;">
+    <h1 class="mb-4 fw-bold">Меня забрали</h1>
+    <p>🇷🇺&nbsp;Этот сайт создан для того, чтобы собрать <strong>анонимную</strong> статистику по мобилизации в РФ. Никто
+        же не верит этим пиздаболам?</p>
+    <p><strong>Если ты получил(а) повестку, заполни простую форму &mdash; город и твое решение</strong></p>
+    <p>🇺🇦&nbsp;Будь ласка, не треба зловживати і відправляти неперевірену або некорректну інформацію. Цей сайт створений
+        для того, щоб ще більше людей прагнули до миру. Ми просто хочемо показати реальний масштаб того, що відбувається
+        і зробити так, щоб народ Росії нарешті прокинувся</p>
+    <div id="addMe">
+        <form autocomplete="off" id="addMeForm" hidden>
+            <div class="form-check">
+                <input type="radio" name="is_out" id="is_out_0" value="0" class="form-check-input">
+                <label class="form-check-label" for="is_out_0">Меня забрали</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" name="is_out" id="is_out_1" value="1" class="form-check-input">
+                <label class="form-check-label" for="is_out_1">Я уехал</label>
+            </div>
+            <div class="autocomplete mt-2" style="width:300px;">
+                <input id="myInput" type="text" name="city" placeholder="Начни вводить город" class="form-control">
+            </div>
+            <input class="g-recaptcha btn btn-primary mt-2 mb-4"
+                   data-sitekey="6Lco9ygiAAAAADu29xjCPXb_iugChV9ZA1YT2efd"
+                   data-callback='onSubmit'
+                   data-action='submit' type="submit" value="Отправить"/>
+        </form>
+    </div>
+    <div id="ok" hidden>OK, принято</div>
+    <div id="error" hidden>Ошибка: <strong></strong></div>
+    <div id="map"></div>
+    <div id="table" class="my-5">
+        <table id="cityTable" border="1" class="table table-striped">
+            <thead>
+            <tr>
+                <th>Город</th>
+                <th>Забрали</th>
+                <th>Уехало</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div id="footer">
+        admin@meniazabra.li <a href="https://github.com/meniazabrali/frontend" target="_blank">GitHub (feel free to
+        submit
+        PR)</a>
+    </div>
 </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
