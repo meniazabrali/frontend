@@ -119,6 +119,7 @@ function onSubmit(token) {
 }
 
 if (!Cookies.get('added')) {
+    console.log('showing form');
     $('#addMe').removeAttr('hidden');
 }
 ymaps.ready(init);

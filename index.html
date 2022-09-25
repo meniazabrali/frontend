@@ -3,10 +3,62 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <meta name="description" content="Меня забрали. Анонимная статистика по мобилизации">
     <title>Меня забрали</title>
+    <meta name="description" content="Меня забрали. Анонимная статистика по мобилизации">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style type="text/css">
+        #ok {
+            background-color: green;
+        }
+
+        #map {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            min-height: 300px;
+        }
+
+        #error {
+            background-color: red;
+        }
+
+        .autocomplete {
+            /*the container must be positioned relative:*/
+            position: relative;
+            display: inline-block;
+        }
+
+        .autocomplete-items {
+            position: absolute;
+            border: 1px solid #d4d4d4;
+            border-bottom: none;
+            border-top: none;
+            z-index: 99;
+            /*position the autocomplete items to be the same width as the container:*/
+            top: 100%;
+            left: 0;
+            right: 0;
+        }
+
+        .autocomplete-items div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #fff;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        .autocomplete-items div:hover {
+            /*when hovering an item:*/
+            background-color: #e9e9e9;
+        }
+
+        .autocomplete-active {
+            /*when navigating through the items using the arrow keys:*/
+            background-color: DodgerBlue !important;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 <div class="container py-5" style="font-size: 21px; line-height: 35px;">
@@ -17,8 +69,8 @@
     <p>🇺🇦&nbsp;Будь ласка, не треба зловживати і відправляти неперевірену або некорректну інформацію. Цей сайт створений
         для того, щоб ще більше людей прагнули до миру. Ми просто хочемо показати реальний масштаб того, що відбувається
         і зробити так, щоб народ Росії нарешті прокинувся</p>
-    <div id="addMe">
-        <form autocomplete="off" id="addMeForm" hidden>
+    <div id="addMe" hidden>
+        <form autocomplete="off" id="addMeForm">
             <div class="form-check">
                 <input type="radio" name="is_out" id="is_out_0" value="0" class="form-check-input">
                 <label class="form-check-label" for="is_out_0">Меня забрали</label>
